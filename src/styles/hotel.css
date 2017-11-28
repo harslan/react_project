@@ -1,0 +1,30 @@
+.hotel-row.well {
+  padding: 0;
+}
+
+.hotel-row-img.col-md-4 {
+  padding-left: 0;
+}
+
+.img-container img {
+  max-height: 250px;
+}
+
+.hotel-header, .hotel-body {
+  margin-bottom: 20px;
+}
+
+.hotel-price {
+  display: block;
+  font-size: 30px;
+  text-align: right;
+}
+
+.hotel-footer-right {
+  margin-right: 15px;
+}
+
+.hotel-stars {
+  margin-right: 15px;
+  margin-top: 15px;
+}
