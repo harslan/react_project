@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import '../styles/app.css';
 
-import { fetchHotels, fetchReviewsIfNeeded } from '../actions'
+import { fetchHotels } from '../actions'
 
 import Header from '../components/header';
 import Hotels from '../components/hotels';
@@ -10,7 +10,7 @@ import Hotels from '../components/hotels';
 class App extends Component {
 
   render() {
-    const { hotels, reviewsByHotel, onShowReviews } = this.props;
+    const { hotels } = this.props;
 
     return (
       <div className="app container">
@@ -23,7 +23,7 @@ class App extends Component {
         }
 
         {!hotels.error && !hotels.isFetching && hotels.items &&
-          <Hotels hotels={hotels.items} reviewsByHotel={reviewsByHotel} onShowReviews={onShowReviews}/>
+          <Hotels hotels={hotels.items} />
         }
 
       </div>
@@ -48,12 +48,11 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  const { hotels, reviewsByHotel } = state
+  const { hotels } = state
 
 
   return {
-    hotels,
-    reviewsByHotel
+    hotels
   }
 }
 
@@ -61,9 +60,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSearch: () => {
       dispatch(fetchHotels())
-    },
-    onShowReviews: (id) => {
-      dispatch(fetchReviewsIfNeeded(id))
     }
   }
 }
